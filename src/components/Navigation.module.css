@@ -1,0 +1,33 @@
+.nav {
+  height: 100%;
+  width: 15%;
+  text-align: center;
+  left: 0;
+  z-index: 10;
+  position: absolute;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 10px 30px;
+  text-align: center;
+}
+
+.nav h2 {
+  background: red;
+}
+
+.nav ul li {
+  margin: 10px auto;
+}
+
+.nav ul li a {
+  text-decoration: none;
+}
+
+.nav ul li button:hover {
+  background: rgb(38, 114, 255);
+  color: white;
+}

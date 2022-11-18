@@ -1,0 +1,12 @@
+.card{
+    padding: 10px 20px;
+    /* display: flex; */
+}
+
+.card button{
+    align-self: flex-end;
+}
+
+.card a{
+    text-decoration: none;
+}

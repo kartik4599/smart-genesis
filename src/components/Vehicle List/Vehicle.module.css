@@ -1,0 +1,28 @@
+.vehicle {
+  padding: 50px 40px;
+}
+
+.camera {
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  background: black;
+  box-shadow: rgb(151, 151, 151) 0px 20px 30px -10px;
+}
+
+.name {
+  text-align: center;
+  padding: 120px 50px;
+  border-radius: 10px;
+  background: rgb(217, 255, 220);
+  box-shadow: rgb(151, 151, 151) 0px 20px 30px -10px;
+}
+
+.speed{
+    padding: 10px 0px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

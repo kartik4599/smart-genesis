@@ -1,0 +1,7 @@
+.main {
+    width: 85%;
+    height: 100%;
+    align-self: flex-end;
+    background: rgb(255, 250, 240);
+    position: absolute;
+}
