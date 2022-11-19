@@ -10,7 +10,7 @@ const Main = () => {
         <Route path={"/AddVehicle"}>
           <AddVehicle />
         </Route>
-        <Route path={"/VehicleList/:vehicleId"} exact>
+        <Route path={"/Vehicle-Details"} exact>
           <Vehicle />
         </Route>
         <Route path={"/VehicleList"}>

@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { singleAction } from "../../context/Single-Redux";
 import { VehiAction } from "../../context/Vehicle-Redux";
 import classes from "./List.module.css";
 
@@ -21,19 +22,20 @@ const List = ({ obj }) => {
         method: "DELETE",
       }
     );
-    if(res.ok){
+    if (res.ok) {
       console.log("success");
     }
   };
 
   const linkHandler = () => {
-    history.replace(`/VehicleList/${obj.key}`);
+    dispatch(singleAction.replace(obj));
+    history.replace(`/Vehicle-Details`);
   };
 
   return (
     <div className={classes.card}>
       <Card>
-        <CardContent onClick={linkHandler} >
+        <CardContent onClick={linkHandler}>
           <Typography gutterBottom variant="h4" component="div">
             {obj.name}
           </Typography>

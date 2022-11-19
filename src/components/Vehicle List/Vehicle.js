@@ -1,28 +1,17 @@
 import { Button, Grid, Paper, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import classes from "./Vehicle.module.css";
 
 const Vehicle = () => {
   const [onOff, setonOff] = useState(false);
-  const params = useParams();
-  const arr = useSelector((state) => state.vehi.arr);
+  const obj = useSelector((state) => state.single);
 
   useEffect(() => {
     const isOn = localStorage.getItem("offon");
     console.log(isOn);
     if (isOn) setonOff(true);
   }, []);
-
-  console.log(arr);
-
-  let obj = arr.filter((obj) => {
-    return obj.key === params.vehicleId;
-  });
-  console.log(obj);
-
-  // if (obj.length === 1) setLoading(false);
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -72,38 +61,38 @@ const Vehicle = () => {
         </Grid>
         <Grid item sx={{ width: 700 }}>
           <div className={classes.name}>
-            <h1>{obj[0].name}</h1>
+            <h1>{obj.name}</h1>
           </div>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.speed}>
             <Item>
               <h3>Average Speeds</h3>
-              <h2>{obj[0].AvgSpeed} Km/hr</h2>
+              <h2>{obj.AvgSpeed} Km/hr</h2>
             </Item>
             <Item>
               <h3>Speeds</h3>
-              <h2>{obj[0].speed} Km/hr</h2>
+              <h2>{obj.speed} Km/hr</h2>
             </Item>
           </div>
         </Grid>
         <Grid item xs={4}>
           <Item>
             <h3>Engine Status</h3>
-            <h2>{obj[0].engine} </h2>
+            <h2>{obj.engine} </h2>
           </Item>
         </Grid>
         <Grid item xs={4}>
           <Item>
             <h3>Fuel Level</h3>
-            <h2>{obj[0].fuel} </h2>
+            <h2>{obj.fuel} </h2>
           </Item>
         </Grid>
         <Grid item xs={3}>
           <Item>
             <h3>Temperature</h3>
             <h2>
-              {obj[0].temperature} <sup>0</sup>C
+              {obj.temperature} <sup>0</sup>C
             </h2>
           </Item>
         </Grid>

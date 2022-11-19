@@ -8,7 +8,6 @@ const VehicleSlice = createSlice({
   reducers: {
     add: (state, action) => {
       state.arr = action.payload;
-      console.log(state.arr);
     },
     addOne: (state, action) => {
       const newArr = [action.payload, ...current(state.arr)];

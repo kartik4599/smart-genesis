@@ -42,31 +42,34 @@ const AddVehicle = () => {
   };
 
   const submitHandler = async () => {
-    const obj = {
-      name: name,
-      engine: condition,
-      fuel: fuel,
-      speed: speed,
-      AvgSpeed: avgSpeed,
-      temperature: temperature,
-    };
-    dispatch(VehiAction.addOne(obj));
-    const res = await fetch(
-      "https://vehicle-in-default-rtdb.asia-southeast1.firebasedatabase.app/vehicleList.json",
-      {
-        method: "POST",
-        body: JSON.stringify(obj),
-      }
-    );
-    if (res.ok) {
-      const data = await res.json();
-      console.log(data);
-      window.alert("Vehicle Is Added");
+    if (name === "") {
+      window.alert("Enter Vehicle Name");
     } else {
-      console.log(res);
+      const obj = {
+        name: name,
+        engine: condition,
+        fuel: fuel,
+        speed: speed,
+        AvgSpeed: avgSpeed,
+        temperature: temperature,
+      };
+      dispatch(VehiAction.addOne(obj));
+      const res = await fetch(
+        "https://vehicle-in-default-rtdb.asia-southeast1.firebasedatabase.app/vehicleList.json",
+        {
+          method: "POST",
+          body: JSON.stringify(obj),
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        console.log(data);
+        window.alert("Vehicle Is Added");
+      } else {
+        console.log(res);
+      }
     }
 
-    console.log(obj);
   };
 
   return (
