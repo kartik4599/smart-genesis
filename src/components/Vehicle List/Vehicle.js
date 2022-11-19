@@ -9,8 +9,12 @@ const Vehicle = () => {
 
   useEffect(() => {
     const isOn = localStorage.getItem("offon");
-    console.log(isOn);
-    if (isOn) setonOff(true);
+    if (isOn) {
+      const is = JSON.parse(isOn);
+      if (is.is) {
+        setonOff(true);
+      }
+    }
   }, []);
 
   const Item = styled(Paper)(({ theme }) => ({
@@ -40,7 +44,7 @@ const Vehicle = () => {
             <Button
               onClick={() => {
                 setonOff(false);
-                localStorage.setItem("offon", false);
+                localStorage.setItem("offon", JSON.stringify({ is: false }));
               }}
               style={{ margin: "0px 10px" }}
               variant={onOff ? "outlined" : "contained"}
@@ -50,7 +54,7 @@ const Vehicle = () => {
             <Button
               onClick={() => {
                 setonOff(true);
-                localStorage.setItem("offon", true);
+                localStorage.setItem("offon", JSON.stringify({ is: true }));
               }}
               style={{ margin: "0px 10px" }}
               variant={onOff ? "contained" : "outlined"}

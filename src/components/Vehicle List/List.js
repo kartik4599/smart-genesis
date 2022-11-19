@@ -27,9 +27,24 @@ const List = ({ obj }) => {
     }
   };
 
-  const linkHandler = () => {
+  const linkHandler = async () => {
     dispatch(singleAction.replace(obj));
     history.replace(`/Vehicle-Details`);
+    try{
+      const res = await fetch(
+        "https://vehicle-in-default-rtdb.asia-southeast1.firebasedatabase.app/current.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(obj),
+        }
+      );
+      if(res.ok){
+        console.log("success");
+      }
+    }catch(e){
+      console.log(e);
+    }
+    
   };
 
   return (

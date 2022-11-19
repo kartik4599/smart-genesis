@@ -15,14 +15,13 @@ const singleSlice = createSlice({
   initialState,
   reducers: {
     replace: (state, action) => {
-      console.log(action.payload, current(state));
       state.AvgSpeed = action.payload.AvgSpeed;
+      state.speed = action.payload.speed;
       state.engine = action.payload.engine;
       state.fuel = action.payload.fuel;
       state.key = action.payload.key;
       state.name = action.payload.name;
       state.temperature = action.payload.temperature;
-      console.log(current(state));
     },
   },
 });
